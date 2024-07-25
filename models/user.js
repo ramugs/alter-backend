@@ -16,4 +16,4 @@ const UserSchema = mongoose.Schema({
   images: [ImageSchema], // Use ImageSchema here
 });
 
-module.exports = mongoose.model("User", UserSchema);
+module.exports = mongoose.model("NewUser", UserSchema);
