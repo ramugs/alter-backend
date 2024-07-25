@@ -195,15 +195,13 @@ const updateProfileImages = async (req, res, next) => {
         .json({ error: err.message });
     } else {
       try {
-        // Process new image
         const newImage = req.files.map((file) => ({
           data: fs.readFileSync(file.path),
           contentType: file.mimetype,
           filename: file.originalname,
           size: file.size,
-        }))[0]; // Assuming single file upload
+        }))[0];
 
-        // Find the image in the user's images array and update it
         const updatedImages = user.images.map((image) => {
           if (image._id.toString() === req.body.imageID) {
             return {
